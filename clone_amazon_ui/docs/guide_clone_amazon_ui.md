@@ -64,8 +64,8 @@ AppBar buildAppBar() => AppBar(
 
 ```yaml
 assets:
- - assets/images
- - assets/icons
+ - assets/images/
+ - assets/icons/
 
 ```
 

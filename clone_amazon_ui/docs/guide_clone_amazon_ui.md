@@ -78,6 +78,30 @@ appBar: buildAppBar(),
 
 ```
 
+## 3. buildAppBar() 수정 및 Constant 추가 
 
+
+### constants.dart 추가 
+- lib/constants.dart 추가 
+
+```js
+class Constants{
+    static double kPadding = 8.0;
+}
+```
+
+
+### buildAppBar() 수정
+- height 추가 
+```js
+Image.asset("assets/logo/amazon.png", height: 25)
+
+
+```
+- actions 추가 
+
+```js
+
+```
 
 

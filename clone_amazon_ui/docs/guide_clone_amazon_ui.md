@@ -17,7 +17,6 @@
 - stl을 써준다. stateless widget
 - stf는 stateful widget
 - HomePage라는 이름으로 해줌 
-- const key constructor 를 삭제해준다. 
 - return에는 Scaffold()를 추가함.  
 
 ### main.dart 내용 삭제 

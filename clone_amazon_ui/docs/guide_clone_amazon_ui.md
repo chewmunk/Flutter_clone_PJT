@@ -90,7 +90,7 @@ class Constants{
 ```
 
 
-### buildAppBar() 수정
+### buildAppBar() 수정, AppBar actions: avatar 추가 
 - height 추가 
 ```js
 Image.asset("assets/logo/amazon.png", height: 25)
@@ -101,6 +101,67 @@ Image.asset("assets/logo/amazon.png", height: 25)
 
 ```js
 
+AppBar(
+    actions: [
+        Padding(padding: const EdgetInsets.all(Constants.kPadding),
+            child: CircleAvatar(
+                backgroundImage: AssetImage("assets/images/profile.jpeg")
+            )
+        )
+    ],
+)
+```
+- CircleAvatar(backgroundImage )
+
+
+
+## 4. Scaffold body 추가, header.dart 추가 
+
+
+### scaffold body 추가 
+- body에 SingleChildScrollView() 추가를 한다.
+- singlechild이기에 Column을 추가하여 children을 추가한다. 
+
+```js
+return Scaffold(
+    appBar: buildAppBar(),
+    body: SingleChildScrollView(
+        child: Column(
+            children: [],
+        ),
+    ),
+);
+
 ```
 
 
+### header.dart 만들기
+- lib/home/widgets/header.dart 
+- im '' fm 추가 
+- buildHeader() 함수 추가 
+- scaffold body의 column children에 들어갈 것임 
+
+```js
+List<Widget> buildHeader() => [
+    Padding(
+        paddding: EdgeInsets.only(
+            left: 2 * Constants.kPadding,
+            top: Constants.kPadding,
+        ),
+        child: Text(
+            "Bookshelf",
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+            ),
+        ),
+    ),
+];
+```
+
+
+#### Padding Wigdet 
+- padding: 얼마나 padding을 줄것인지 EdgeInsets.only(left: 2 * Constants.kPadding, top) 나는 오직 여기에만 줄것이다. 
+- child: padding 안에 들어갈 내용 
+- child: Text("bookshelf", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,),)
+- Text를 얼마나 줄 것인지를 정한다. 

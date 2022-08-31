@@ -140,7 +140,7 @@ return Scaffold(
 - im '' fm 추가 
 - buildHeader() 함수 추가 
 - scaffold body의 column children에 들어갈 것임 
-
+- left 와 top을 주었음 body에서 Column에서 EdgeInsets.all() 하여서 주었음 
 ```js
 List<Widget> buildHeader() => [
     Padding(
@@ -169,7 +169,6 @@ List<Widget> buildHeader() => [
         ),
     ),
 ];
-];
 ```
 - 숫자 먼저 쓰는 습관을 들이고 있다. 나도 숫자먼저 쓰는 습관을 들이자. 
 
@@ -178,3 +177,132 @@ List<Widget> buildHeader() => [
 - child: padding 안에 들어갈 내용 
 - child: Text("bookshelf", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,),)
 - Text를 얼마나 줄 것인지를 정한다. 
+
+
+
+## home_page.dart > Scaffold body에 추가 
+- Scaffold(appBar에는 추가 하였음)
+- Scaffold(body에 추가를 하면 됨)
+- buildHeader() ... 을 이용하여서 추가함. 
+- 아마 깊은 복사일 듯? 
+```js
+return Scaffold(
+    appBar: buildAppBar(),
+    body: SingleChildScrollView(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start, // 이거 추가해줘야함 
+            children: [...buildHeader()],
+        ),
+    ),
+);
+
+```
+
+## 5. search_bar.dart 생성 buildSearch() 함수 생성 
+- home > widgets > search_bar.dart 
+
+```js
+import 'fm';
+
+Widget buildSearchBar() => Padding(
+    padding: EdgeInsets.all(2 * Constants.kPadding),
+    child: TextField(
+        decoration: InputDecoration(
+            hintText: "Search a book",
+            fillCOlor: Colors.black.withOpacity(0.1), // filled 같이 써야 함 
+            filled: true, 
+            prefixIcon: Icon(Icons.search), // hintText 앞에 아이콘을 넣을 수 있음 
+            contentPadding: const EdgetInsets.symmetric(
+                vertical: 0.0,
+                horizontal: Constants.kPadding,
+            ), // 안에 있는 콘텐츠들을 padding을 주게 만듦 
+            border: OutLineInputBorder( // border 속성으로 InputBorder class임 입력할 때의 Border를 말하는 것 같음  type이 Input 
+                borderRadius: BorderRadius.circular(20.0),
+                borderSide: BorderSide.none
+            ),
+        ),
+    ),
+);
+```
+
+
+## 6. icons_list.dart 생성, buildIconsList() 생성 / models폴더 Icons_list.dart 생성 
+- import ''; fm
+
+```js
+
+final List<IconModel> headerImages = IconModel.icons 
+
+Widget buildIconsList() => Padding(
+    padding: EdgeInsets.only(bottom: COnstants.kPadding),
+    child: SingleChildScrollView(
+        child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: List.generate(
+                headerImages.length,
+                (index) => Container(
+                    width: 100,
+                    child: Column(
+                        children: [Image.asset(headerImages[index].icon),],
+                    ),
+                ), 
+            ),
+        ),
+    ),
+);
+
+```
+
+
+### models 폴더 icons_list.dart 생성 
+- models > icons_list.dart 
+
+```js
+class IconModel {
+    String icon;
+    String title;
+
+    IconModel({
+        required this.icon,
+        required thos.title,
+    });
+
+    static List<IconModel> icons = [
+        IconModel(
+            icon: "assets/icons/icon_1.png", 
+            title: "Discover",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_2.png", 
+            title: "Arbitrary",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_3.png", 
+            title: "Author Nearby",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_4.png", 
+            title: "WorldWide",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_5.png", 
+            title: "Audio Book",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_6.png", 
+            title: "Quick Search",
+        ), 
+        IconModel(
+            icon: "assets/icons/icon_7.png", 
+            title: "My Country",
+        ), 
+
+    ];
+}
+
+```
+
+- buildIconsList() 추가하기 
+```js
+
+```

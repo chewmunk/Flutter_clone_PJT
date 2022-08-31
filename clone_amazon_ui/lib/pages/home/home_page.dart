@@ -1,4 +1,6 @@
 import 'package:clone_amazon_ui/pages/home/widgets/app_bar.dart';
+import 'package:clone_amazon_ui/pages/home/widgets/header.dart';
+import 'package:clone_amazon_ui/pages/home/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +10,11 @@ class HomePage extends StatelessWidget {
         appBar: buildAppBar(),
         body: SingleChildScrollView(
           child: Column(
-            children: [],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ...buildHeader(),
+              buildSearchBar(),
+            ],
           ),
         ));
   }

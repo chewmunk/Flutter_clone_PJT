@@ -156,9 +156,22 @@ List<Widget> buildHeader() => [
             ),
         ),
     ),
+    Padding(
+        paddding: EdgeInsets.symmetric(
+            horizontal: 2 * Constants.kPadding,
+            vertical: Constants.kPadding,
+        ),
+        child: Text(
+            "Welcome Flutter Mappers",
+            style: TextStyle(
+                color: Colors.black54,
+            ),
+        ),
+    ),
+];
 ];
 ```
-
+- 숫자 먼저 쓰는 습관을 들이고 있다. 나도 숫자먼저 쓰는 습관을 들이자. 
 
 #### Padding Wigdet 
 - padding: 얼마나 padding을 줄것인지 EdgeInsets.only(left: 2 * Constants.kPadding, top) 나는 오직 여기에만 줄것이다. 

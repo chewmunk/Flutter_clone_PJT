@@ -14,7 +14,16 @@ Widget buildIconsList() => Padding(
             headerImages.length,
             (index) => Container(
               width: 100,
-              child: Column(children: [Image.asset(headerImages[index].icon)]),
+              child: Column(
+                children: [
+                  Image.asset(
+                    headerImages[index].icon,
+                    width: 50,
+                    height: 50,
+                  ),
+                  Text(headerImages[index].title)
+                ],
+              ),
             ),
           ),
         ),

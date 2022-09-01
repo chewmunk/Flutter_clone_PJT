@@ -1,4 +1,5 @@
 import 'package:clone_amazon_ui/pages/home/widgets/app_bar.dart';
+import 'package:clone_amazon_ui/pages/home/widgets/books_list.dart';
 import 'package:clone_amazon_ui/pages/home/widgets/header.dart';
 import 'package:clone_amazon_ui/pages/home/widgets/icons_list.dart';
 import 'package:clone_amazon_ui/pages/home/widgets/search_bar.dart';
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
               ...buildHeader(),
               buildSearchBar(),
               buildIconsList(),
+              BuildBookList(),
             ],
           ),
         ));

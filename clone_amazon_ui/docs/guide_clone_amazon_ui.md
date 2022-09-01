@@ -236,6 +236,7 @@ final List<IconModel> headerImages = IconModel.icons
 Widget buildIconsList() => Padding(
     padding: EdgeInsets.only(bottom: COnstants.kPadding),
     child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal, 
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: List.generate(
@@ -304,5 +305,71 @@ class IconModel {
 
 - buildIconsList() 추가하기 
 ```js
+children: [
+              ...buildHeader(),
+              buildSearchBar(),
+              buildIconsList(),
+            ],
+```
+
+
+### scrollBehavior 추가 
+
+```js
+scrollBehavior: MaterialScrollBehavior().copywith(
+    dragDevices: {
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.touch,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown,
+    },
+),
 
 ```
+
+
+## 7.BookList 생성 
+- widgets > books_list.dart
+
+```js
+import '' fm; 
+
+class BuildBookList extends StatelessWidget {
+
+    @override
+
+    Widget build(BuildContext context) {
+        return Container(
+            width: double.infinity,
+            color: Colors.black.withOpacity(0.1),
+            child: Column(
+                children: [
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: Constants.kPadding,
+                            horizontal: Contants.kPadding * 2, 
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxixAlignment.spacebetween,
+                            chilren: [
+                                Text("Best Sellers", 
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                ),    
+                            ),
+
+                            ],
+                        ),
+                    ),
+                ]
+            ),
+        );
+    }
+
+
+}
+
+```
+

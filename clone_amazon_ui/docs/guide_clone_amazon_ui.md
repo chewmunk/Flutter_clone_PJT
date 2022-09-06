@@ -353,12 +353,28 @@ class BuildBookList extends StatelessWidget {
                             mainAxisAlignment: MainAxixAlignment.spacebetween,
                             chilren: [
                                 Text("Best Sellers", 
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                ),    
-                            ),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                    ),    
+                                ),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text("See all"),
+                                    style: TextButton.styleFrom(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 2.0,
+                                            horizontal: Constants.kPadding,
+                                        ),
+                                        backgroundColor: Colors.deepOrange,
+                                        primary: Colors.white,
+                                        minimumSize: SIze(5, 5),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRaidus.circular(20.0),
+                                        ),
+                                    ),
+                                ),
 
                             ],
                         ),

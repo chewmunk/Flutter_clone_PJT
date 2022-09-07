@@ -389,3 +389,107 @@ class BuildBookList extends StatelessWidget {
 
 ```
 
+## 8. BookModel 생성 
+
+### BookModel 생성
+- lib > models > book_model.dart 생성
+
+```js
+class BookModel {
+    String image;
+    STring secondImage;
+    String title;
+    STring subtitle;
+    bool favorite;
+
+    BookModel({
+        required this.image,
+        required this.secondImage,
+        required this.title,
+        required this.subtitle,
+        required this.favorite,
+    });
+
+    static List<BookModel> books = [
+        BookModel(
+            image: "assets/images/book_1.jpeg",
+            secondImae: "assets/images/book_1.jpeg",
+            title: "The Martian",
+            subtitle: "Andy Weir",
+            favorite: false,
+
+        ),
+
+    ]
+
+}
+
+```
+
+
+### books_list.dart 수정
+- lib > pages > home > widgets > books_list.dart 수정
+
+
+
+```js
+SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
+    child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: List.generate(
+            books.length,
+            (index) => Padding(
+                padding: EdgeInsets.only(
+                    bottom: Constants.kPadding * 2,
+                    right: Constants.kPadding,
+                    left: index == 0 ? Constants.kPadding : 0,
+                ),
+                child: InkWell(
+                    onTap: () {
+                        //TODO 
+                        //We will trigger somthing later
+
+                    },
+                    child: Column(children:[
+                            Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BoderRadius.circular(10.0),
+                                ),
+                                elevation: 4,
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    child: Image.asset(
+                                        book[index].image,
+                                        height: 180,
+                                        width: 120,
+                                        fit: BoxFit.coover,
+                                    )
+                                ),
+                            ),
+                            Container(
+                                width: 120,
+                                child: Text(
+                                    book[index].title,
+                                )
+                            ),
+                            Container(
+                                width: 120,
+                                child: Text(
+                                    book[index].subtitle,
+                                    style:
+                                        TextStyle(
+                                            fontSize: 10, 
+                                            color: Colors.blueGrey,
+                                        )
+                                )
+                            ),
+                        ],
+                    ),
+                ),
+            ),
+        ) 
+    ),
+)
+
+```
